@@ -18,5 +18,5 @@ def create_png_with_statistics(statistics: dict, file_name: str) -> None:
     plt.title('statistics')
     x = statistics.keys()
     y = statistics.values()
-    plt.bar(x, y, color='grey', width=0.5)
+    plt.bar(x, y, color='yellow', width=0.75)
     plt.savefig(file_name)
