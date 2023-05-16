@@ -6,7 +6,7 @@ from files_functions import read_data_from_txt_file, write_data_to_txt_file, rea
     write_statistics
 from settings import read_settings
 from visualization import create_png_with_statistics
-from lunh_algorithm import lunh
+from luhn_algorithm import Luhn
 
 logger = logging.getLogger()
 logger.setLevel('INFO')
@@ -50,7 +50,7 @@ if __name__ == "__main__":
             logging.info("Статистика успешно посчитана")
         elif args.lunh_algorithm:
             card_number = read_data_from_txt_file(settings['card_number'])
-            if lunh(card_number):
+            if Luhn(card_number):
                 logging.info("Номер карты действителен")
             else:
                 logging.info("Номер карты не действителен")
