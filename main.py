@@ -29,8 +29,8 @@ if __name__ == "__main__":
         settings = read_settings()
     if settings:
         if args.card_number_enumeration:
-            hash = "4f9cbbc1e5a60f526a58cde1343acd900b3f918f6fdff73eb82b0b87ae7d8e22",
-            bins = ["427409","427695","424542","424543","424544","442197","442194","442195","442196","479578","480110","480111","480112","480113","480114","481776","481777","481779","483983","427400","427402","427403","427404","427406","427407","427408","427411","427412","427413"],
+            hash = settings.['hash']
+            bins = settings.['bin']
             last_four_numbers = read_data_from_txt_file(settings['last_four_numbers'])
             card_number = enumerate_card_number(hash, bins, last_four_numbers, args.card_number_enumeration)
             if card_number:
@@ -39,9 +39,9 @@ if __name__ == "__main__":
             else:
                 logging.info("Не удалось найти номер карты")
         elif args.statistics:
-            hash = "4f9cbbc1e5a60f526a58cde1343acd900b3f918f6fdff73eb82b0b87ae7d8e22",
-            bins = ["427409","427695","424542","424543","424544","442197","442194","442195","442196","479578","480110","480111","480112","480113","480114","481776","481777","481779","483983","427400","427402","427403","427404","427406","427407","427408","427411","427412","427413"],
-            last_four_numbers = read_data_from_txt_file(settings['last_four_numbers'])
+            hash = settings.['hash']
+            bins = settings.['bin']
+            last_four_numbers = read_data_from_txt_file(settings['last_four_numbers'])/
             for i in range(1, 21):
                 t1 = time.time()
                 enumerate_card_number(hash, bins, last_four_numbers, i)
